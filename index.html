@@ -852,6 +852,26 @@ body:has(#video-es:target) .reveal{opacity:1;transform:none}
   text-transform:uppercase;
   color:rgba(255,255,255,.78);
 }
+.music-toggle{
+  position:absolute;
+  right:18px;
+  top:18px;
+  z-index:4;
+  min-height:38px;
+  padding:9px 12px;
+  border:1px solid rgba(242,215,151,.72);
+  border-radius:999px;
+  background:rgba(7,24,50,.68);
+  color:var(--gold-2);
+  font-family:"Montserrat",sans-serif;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+}
+.music-toggle:hover,.music-toggle:focus-visible{background:var(--gold-2);color:var(--navy);outline:none}
 .scroll-cue{
   position:absolute;
   left:50%;
@@ -1293,18 +1313,35 @@ body.can-reveal .reveal.visible{opacity:1;transform:translateY(0)}
 @media (max-width:620px){
   .nav{gap:9px;overflow-x:auto;justify-content:flex-start;padding-left:12px;padding-right:12px}
   .nav a{font-size:9px;letter-spacing:.12em}
-  .entry{padding:20px}
-  .entry-card{width:min(430px,100%)}
-  .entry-card .sub{max-width:360px;font-size:10px;letter-spacing:.16em}
-  .envelope{width:min(390px,92vw);height:326px}
-  .letter{left:7%;right:7%;min-height:222px;padding:26px 20px 26px}
-  .letter-roses{width:225px}
-  .letter strong{font-size:54px}
-  .letter-date{font-size:30px}
-  .env-body{inset:124px 0 0}
-  .env-flap{top:124px}
-  .ribbon{top:162px}
-  .language-grid{grid-template-columns:1fr}
+  .entry{
+    place-items:start center;
+    overflow-y:auto;
+    padding:max(14px,env(safe-area-inset-top)) 18px max(28px,env(safe-area-inset-bottom));
+  }
+  .entry-card{width:min(430px,100%);padding:4px 0 20px}
+  .entry-card h1{margin-top:30px;font-size:clamp(46px,13vw,64px)}
+  .entry-card .sub{max-width:360px;margin:12px auto 18px;font-size:9.5px;letter-spacing:.14em}
+  .envelope{width:min(320px,84vw);height:258px}
+  .letter{left:8%;right:8%;top:12px;min-height:174px;padding:20px 16px 22px}
+  .letter-roses{top:-30px;width:190px;height:70px}
+  .letter-roses .rose{width:56px;height:56px}
+  .letter-roses .r1{left:6px;top:16px}
+  .letter-roses .r2{left:62px;top:2px}
+  .letter-roses .r3{left:118px;top:10px}
+  .letter-roses .r4{width:46px;height:46px;top:28px}
+  .tiara-line{right:14px;top:34px;width:112px}
+  .letter-kicker{margin-top:30px;font-size:28px}
+  .letter strong{font-size:45px}
+  .letter span{font-size:8px;letter-spacing:.18em}
+  .letter-date{font-size:25px}
+  .env-body{inset:98px 0 0}
+  .env-pocket{height:112px}
+  .env-flap{top:98px}
+  .ribbon{top:128px;width:118px}
+  .wax-seal-entry{right:22px;bottom:55px;width:58px;height:58px;font-size:16px}
+  .language-grid{grid-template-columns:1fr;gap:12px;margin-top:18px}
+  .lang-pick{min-height:50px}
+  .music-toggle{right:12px;top:12px;font-size:9px}
   .hero{min-height:100svh;padding-left:16px;padding-right:16px}
   .hero h1{font-size:72px}
   .hero-copy{font-size:20px}
@@ -1358,7 +1395,7 @@ body.can-reveal .reveal.visible{opacity:1;transform:translateY(0)}
     <i class="petal" style="--left:91%;--x:-92px;--delay:-2.2s;--speed:10.5s;--size:16px"></i>
   <i class="sparkle" style="left: 13.3142%; top: 31.8034%; --delay: 2.2546946349879766s; --speed: 4.625427434449685s;"></i><i class="star" style="left: 6.17708%; top: 44.362%; --delay: 3.651521429319519s; --speed: 4.564695248242495s;"></i><i class="star" style="left: 5.94943%; top: 79.6508%; --delay: 1.0821874675655128s; --speed: 6.526086441273506s;"></i><i class="star" style="left: 52.1717%; top: 77.7126%; --delay: 0.3036748433160592s; --speed: 3.6583077418720524s;"></i><i class="star" style="left: 5.47855%; top: 42.5479%; --delay: 1.2973074538238545s; --speed: 4.715854168195465s;"></i><i class="star" style="left: 78.7917%; top: 18.8334%; --delay: 3.5554167684605655s; --speed: 4.842636618482203s;"></i><i class="star" style="left: 51.85%; top: 51.8409%; --delay: 2.1043121865581518s; --speed: 4.789348466230592s;"></i><i class="star" style="left: 21.2673%; top: 99.0915%; --delay: 0.423498458007999s; --speed: 3.6242153956326213s;"></i><i class="star" style="left: 67.272%; top: 1.81992%; --delay: 1.7306742227073046s; --speed: 5.869279842627977s;"></i><i class="sparkle" style="left: 46.7525%; top: 18.9623%; --delay: 2.1970346202205246s; --speed: 6.247230283800318s;"></i><i class="star" style="left: 52.9402%; top: 58.5562%; --delay: 2.4358771266779558s; --speed: 5.4064831390430905s;"></i><i class="star" style="left: 20.5882%; top: 84.3189%; --delay: 3.104563764318501s; --speed: 6.246261040381189s;"></i><i class="star" style="left: 94.2615%; top: 34.0983%; --delay: 0.1688273714076316s; --speed: 6.5908960860826244s;"></i><i class="star" style="left: 30.1787%; top: 50.1297%; --delay: 0.05565223005592568s; --speed: 4.637207928696794s;"></i><i class="star" style="left: 13.619%; top: 77.0193%; --delay: 1.367765316239597s; --speed: 7.0263108088160315s;"></i><i class="star" style="left: 42.5528%; top: 57.5135%; --delay: 1.2931117742721563s; --speed: 2.7359409184730916s;"></i><i class="star" style="left: 30.6522%; top: 89.8562%; --delay: 2.999134085476929s; --speed: 6.371768949296801s;"></i><i class="star" style="left: 32.3182%; top: 92.972%; --delay: 0.8837693308777879s; --speed: 5.994836959385564s;"></i><i class="sparkle" style="left: 79.8658%; top: 17.4347%; --delay: 0.9253457993972973s; --speed: 3.615209252857554s;"></i><i class="star" style="left: 60.4162%; top: 98.7784%; --delay: 1.3529219429583295s; --speed: 4.401990165551395s;"></i><i class="star" style="left: 22.8528%; top: 57.3643%; --delay: 1.936101385512179s; --speed: 6.849636333768325s;"></i><i class="star" style="left: 30.4423%; top: 78.9095%; --delay: 1.4051079118692522s; --speed: 5.263069748169911s;"></i><i class="star" style="left: 54.2323%; top: 2.85437%; --delay: 2.6454338746083548s; --speed: 3.00869067261806s;"></i><i class="star" style="left: 43.9115%; top: 4.41945%; --delay: 2.251979329202706s; --speed: 3.4716129424825954s;"></i><i class="star" style="left: 40.863%; top: 80.5461%; --delay: 3.518292629078446s; --speed: 2.821845902157467s;"></i><i class="star" style="left: 19.3128%; top: 62.2282%; --delay: 0.8282416930538656s; --speed: 4.3256191259851295s;"></i><i class="star" style="left: 42.5755%; top: 71.087%; --delay: 2.0614443885969544s; --speed: 3.401245720983004s;"></i><i class="sparkle" style="left: 6.90439%; top: 76.9002%; --delay: 1.2017180487227153s; --speed: 2.7889467849502343s;"></i><i class="star" style="left: 7.12979%; top: 54.2278%; --delay: 3.483927502229282s; --speed: 2.6605286399269987s;"></i><i class="star" style="left: 35.0817%; top: 39.0194%; --delay: 3.849624088357276s; --speed: 6.765447044755772s;"></i><i class="star" style="left: 76.7336%; top: 60.6592%; --delay: 3.147798993771439s; --speed: 4.914409600542571s;"></i><i class="star" style="left: 47.6857%; top: 13.2298%; --delay: 2.6203107849516156s; --speed: 2.9845222438013925s;"></i><i class="star" style="left: 42.0318%; top: 52.8457%; --delay: 3.960377152590808s; --speed: 4.132661799526664s;"></i><i class="star" style="left: 2.08628%; top: 95.3205%; --delay: 2.601204589097995s; --speed: 3.7603226440235544s;"></i><i class="star" style="left: 55.7149%; top: 57.7496%; --delay: 2.311571435255577s; --speed: 6.786124831014616s;"></i><i class="star" style="left: 56.1761%; top: 48.5328%; --delay: 1.138058503311941s; --speed: 5.409920531221794s;"></i><i class="sparkle" style="left: 28.2862%; top: 55.3296%; --delay: 0.6346072492158386s; --speed: 2.962815968664201s;"></i><i class="star" style="left: 17.2835%; top: 2.90185%; --delay: 3.391390804392552s; --speed: 5.803637039331958s;"></i><i class="star" style="left: 65.3624%; top: 44.0731%; --delay: 1.6648475397023144s; --speed: 4.124301191132503s;"></i><i class="star" style="left: 12.7427%; top: 10.4837%; --delay: 0.9105974434574864s; --speed: 6.112752989184889s;"></i><i class="star" style="left: 41.5652%; top: 63.3924%; --delay: 1.7337003743460997s; --speed: 4.108766564706466s;"></i><i class="star" style="left: 40.0539%; top: 95.8224%; --delay: 2.7290782335292496s; --speed: 5.705206856956426s;"></i><i class="star" style="left: 32.6643%; top: 86.0011%; --delay: 2.188475602273284s; --speed: 3.0044981837050972s;"></i><i class="star" style="left: 65.3006%; top: 39.0049%; --delay: 1.1131818383974794s; --speed: 3.1293589460841194s;"></i><i class="star" style="left: 56.5491%; top: 97.0769%; --delay: 2.4386400500450565s; --speed: 5.676156195664112s;"></i><i class="sparkle" style="left: 79.2156%; top: 32.8829%; --delay: 3.922729711411618s; --speed: 7.364141683470402s;"></i><i class="star" style="left: 90.6705%; top: 89.1286%; --delay: 0.5466423501364508s; --speed: 6.503349863516123s;"></i><i class="star" style="left: 74.4583%; top: 24.4889%; --delay: 3.8808543827899946s; --speed: 3.1333818540992975s;"></i><i class="star" style="left: 27.8203%; top: 53.9854%; --delay: 0.8607063215920374s; --speed: 7.248270817556536s;"></i><i class="star" style="left: 22.8661%; top: 29.0567%; --delay: 0.33258213347262355s; --speed: 3.7444205968618216s;"></i><i class="star" style="left: 80.5614%; top: 57.5295%; --delay: 0.8383867453251939s; --speed: 3.443310675950588s;"></i><i class="star" style="left: 24.4339%; top: 90.7976%; --delay: 0.820410526133204s; --speed: 3.463065851658364s;"></i><i class="star" style="left: 90.63%; top: 6.65951%; --delay: 2.8495490896887685s; --speed: 5.958139245484961s;"></i><i class="star" style="left: 85.1595%; top: 33.9173%; --delay: 0.38355091893361903s; --speed: 2.4538067494111444s;"></i><i class="sparkle" style="left: 87.6588%; top: 46.2578%; --delay: 3.8970104966050187s; --speed: 2.971868764839245s;"></i><i class="star" style="left: 23.9676%; top: 19.2089%; --delay: 0.8387879098397861s; --speed: 3.127142618934256s;"></i><i class="star" style="left: 8.33427%; top: 91.4762%; --delay: 2.3337353460673764s; --speed: 4.028038566148949s;"></i><i class="star" style="left: 98.6366%; top: 23.9331%; --delay: 1.8030427934484718s; --speed: 4.919980253166554s;"></i><i class="star" style="left: 83.8164%; top: 39.7964%; --delay: 3.492973953995439s; --speed: 3.6591202513121375s;"></i><i class="star" style="left: 44.5598%; top: 48.9119%; --delay: 3.3357171008251827s; --speed: 4.016010462240063s;"></i><i class="star" style="left: 48.5382%; top: 13.6485%; --delay: 3.312012633698287s; --speed: 4.797161670192409s;"></i><i class="star" style="left: 53.3826%; top: 15.7004%; --delay: 0.8328281524431755s; --speed: 5.260598254116225s;"></i><i class="star" style="left: 26.9991%; top: 87.588%; --delay: 0.26150681335388093s; --speed: 6.3393588721689795s;"></i><i class="sparkle" style="left: 23.7879%; top: 79.1406%; --delay: 1.7610945322191922s; --speed: 7.086768405539003s;"></i><i class="star" style="left: 32.7634%; top: 88.9129%; --delay: 1.493230312024104s; --speed: 5.413341198174367s;"></i><i class="star" style="left: 46.1976%; top: 89.8871%; --delay: 2.0187783136323914s; --speed: 3.8594491138116362s;"></i><i class="star" style="left: 85.1117%; top: 2.96577%; --delay: 1.3388608843514005s; --speed: 2.864089535431255s;"></i><i class="star" style="left: 58.6706%; top: 22.0007%; --delay: 0.8113087973271518s; --speed: 2.896048560193262s;"></i><i class="star" style="left: 72.1538%; top: 9.15843%; --delay: 3.6185700760110446s; --speed: 2.789643469071274s;"></i><i class="star" style="left: 63.3485%; top: 93.396%; --delay: 1.0587029589376349s; --speed: 4.741186489853705s;"></i><i class="star" style="left: 27.1249%; top: 69.8999%; --delay: 3.335820451428327s; --speed: 2.442539461013069s;"></i><i class="star" style="left: 6.20607%; top: 7.33537%; --delay: 3.1850692203445887s; --speed: 5.335158990375033s;"></i><i class="sparkle" style="left: 74.1402%; top: 35.3523%; --delay: 3.29038430402208s; --speed: 5.6178569891753405s;"></i><i class="star" style="left: 6.43646%; top: 84.687%; --delay: 3.506461724591702s; --speed: 2.9180920215693695s;"></i><i class="star" style="left: 21.9113%; top: 78.8486%; --delay: 1.5835746156017851s; --speed: 3.9710292778442504s;"></i><i class="star" style="left: 53.6177%; top: 27.0949%; --delay: 1.7319616410053231s; --speed: 7.104590010468138s;"></i><i class="star" style="left: 9.85224%; top: 37.3865%; --delay: 2.732290907989955s; --speed: 2.625200797139822s;"></i><i class="star" style="left: 36.0181%; top: 41.3347%; --delay: 0.6408307791600145s; --speed: 3.468576854937002s;"></i><i class="star" style="left: 8.34318%; top: 63.5872%; --delay: 3.972399977394769s; --speed: 2.6956254985542865s;"></i><i class="star" style="left: 13.6142%; top: 63.3159%; --delay: 3.5713278751038393s; --speed: 6.769150479700608s;"></i><i class="star" style="left: 3.48101%; top: 35.833%; --delay: 2.362659342845164s; --speed: 7.151063121610392s;"></i><i class="sparkle" style="left: 66.888%; top: 99.7354%; --delay: 2.240180856140072s; --speed: 5.9052920006659715s;"></i><i class="star" style="left: 42.3678%; top: 23.867%; --delay: 3.5884290200526427s; --speed: 7.1671492596661945s;"></i><i class="star" style="left: 65.0912%; top: 95.581%; --delay: 1.993587822822834s; --speed: 7.359391697911182s;"></i><i class="star" style="left: 16.1128%; top: 73.6388%; --delay: 1.1146706713871906s; --speed: 4.10691472203151s;"></i><i class="star" style="left: 4.63868%; top: 27.6564%; --delay: 1.0725073940632335s; --speed: 7.072132733691756s;"></i><i class="star" style="left: 90.2875%; top: 38.9072%; --delay: 0.7502604822002339s; --speed: 4.512325207168045s;"></i><i class="star" style="left: 50.2194%; top: 87.7978%; --delay: 1.8009318989884142s; --speed: 5.627420492886648s;"></i><i class="petal" style="--left: 88.74800881709167%; --x: 92.66693374783017px; --delay: 0.5942616877450007s; --speed: 9.285164173846024s; --size: 20.803887112184782px;"></i><i class="petal" style="--left: 68.09608411152172%; --x: 89.44666970859132px; --delay: 4.360230087619794s; --speed: 7.440120635531971s; --size: 15.324036542871866px;"></i><i class="petal" style="--left: 2.9322399057822524%; --x: 11.742652370979371px; --delay: 2.05513845843561s; --speed: 9.878139155147489s; --size: 20.537754596140203px;"></i><i class="petal" style="--left: 80.01594714102033%; --x: -20.830000055840102px; --delay: 4.176389136127616s; --speed: 7.314085063613748s; --size: 21.0080287480452px;"></i><i class="petal" style="--left: 59.84995355352265%; --x: 63.99917452006176px; --delay: 1.2444207384183807s; --speed: 9.103903334420387s; --size: 24.05254591115612px;"></i><i class="petal" style="--left: 69.62260974908521%; --x: 95.96692696417065px; --delay: 5.711055483395543s; --speed: 9.490949387754554s; --size: 25.422414175762057px;"></i><i class="petal" style="--left: 36.29760566321883%; --x: 39.97064678692422px; --delay: 1.7713597771019365s; --speed: 10.030415449676859s; --size: 20.25994471984764px;"></i><i class="petal" style="--left: 62.48195495970661%; --x: -87.91683374071633px; --delay: 3.0280959856214134s; --speed: 11.10260728915085s; --size: 24.040187849403434px;"></i><i class="petal" style="--left: 41.381290779304535%; --x: 4.992913390355611px; --delay: 3.024146031964003s; --speed: 10.087322330550395s; --size: 20.41626980194556px;"></i><i class="petal" style="--left: 14.385459451246795%; --x: 78.87589323338688px; --delay: 4.080014575388929s; --speed: 10.841191045215414s; --size: 21.712100287469525px;"></i><i class="petal" style="--left: 59.223599447978096%; --x: 10.99801363985533px; --delay: 0.28275697362539565s; --speed: 11.977577424067949s; --size: 13.648568598023347px;"></i><i class="petal" style="--left: 14.266668015833083%; --x: -102.3790527928452px; --delay: 5.5953576741661175s; --speed: 12.3859100328843s; --size: 16.834941052953162px;"></i><i class="petal" style="--left: 52.14702099478744%; --x: -95.13761213367854px; --delay: 4.8867758718294505s; --speed: 8.091122944825566s; --size: 18.828835973299014px;"></i><i class="petal" style="--left: 50.75399587486442%; --x: 83.66858285199095px; --delay: 2.951280440603302s; --speed: 8.819775314274763s; --size: 20.372319168974684px;"></i><i class="petal" style="--left: 53.122649214664186%; --x: 57.37128307755742px; --delay: 3.9791708410407383s; --speed: 7.7838821826988855s; --size: 23.19946848139057px;"></i><i class="petal" style="--left: 7.220977129319294%; --x: 67.9689500634149px; --delay: 5.289943626654186s; --speed: 12.686124592947632s; --size: 14.848689798656238px;"></i><i class="petal" style="--left: 84.72198114176857%; --x: -11.293871636462299px; --delay: 0.8396530651304932s; --speed: 11.484656986236024s; --size: 22.894558979322447px;"></i><i class="petal" style="--left: 38.17680580924503%; --x: -10.152700433507889px; --delay: 3.0665677348982556s; --speed: 12.328601009026846s; --size: 16.838486546161885px;"></i><i class="petal" style="--left: 47.67089837238168%; --x: -3.031923130423152px; --delay: 3.228781316818454s; --speed: 9.074817919908384s; --size: 24.223258839676916px;"></i><i class="petal" style="--left: 73.00992361674321%; --x: -81.5158486335945px; --delay: 5.790109122939326s; --speed: 8.220097055580867s; --size: 22.738941502356397px;"></i><i class="petal" style="--left: 87.9529501710056%; --x: 81.3063546908117px; --delay: 4.2814116029382125s; --speed: 10.582639268031395s; --size: 18.186199761470824px;"></i><i class="petal" style="--left: 45.53955031474408%; --x: -38.15231913170922px; --delay: 5.969077436981524s; --speed: 7.993836761699109s; --size: 12.546309068401424px;"></i><i class="petal" style="--left: 86.7990853902328%; --x: -35.76071833588384px; --delay: 2.187900713996027s; --speed: 12.443308507226112s; --size: 20.804387261457943px;"></i><i class="petal" style="--left: 52.40088032553445%; --x: -54.32515547780315px; --delay: 1.521337129838137s; --speed: 10.20800385417531s; --size: 23.415532518615343px;"></i><i class="petal" style="--left: 41.51836766965105%; --x: -57.12660144753043px; --delay: 0.2076621418226008s; --speed: 9.370186195675517s; --size: 21.82922650472849px;"></i><i class="petal" style="--left: 67.49141634431251%; --x: -38.57795238520137px; --delay: 4.992929530553324s; --speed: 10.789648324717128s; --size: 22.97392739734222px;"></i><i class="petal" style="--left: 76.34546591302349%; --x: -98.97752267430216px; --delay: 0.07538562679150695s; --speed: 9.405252387003415s; --size: 20.215508951129568px;"></i><i class="petal" style="--left: 42.118396785991884%; --x: -38.136588152206016px; --delay: 0.6754275848742424s; --speed: 11.34928904578322s; --size: 18.924771500395224px;"></i><i class="petal" style="--left: 66.74994357952103%; --x: -51.57582039960183px; --delay: 2.951346257189137s; --speed: 11.07176677967696s; --size: 24.85716298056824px;"></i><i class="petal" style="--left: 26.40202071211679%; --x: -15.287371991104436px; --delay: 5.935861368407734s; --speed: 10.516870995051011s; --size: 24.160992169818314px;"></i><i class="petal" style="--left: 40.104414448542144%; --x: 95.06071846022772px; --delay: 2.2440448930625276s; --speed: 8.432585325132855s; --size: 19.42244266795296px;"></i><i class="petal" style="--left: 56.973095622439565%; --x: 52.16035387451572px; --delay: 0.27895127127633046s; --speed: 11.76247774439211s; --size: 21.604346883886457px;"></i><i class="petal" style="--left: 68.53822219682236%; --x: -41.16011404450329px; --delay: 3.9068891821835825s; --speed: 9.433647770216302s; --size: 13.166252362269704px;"></i><i class="petal" style="--left: 89.10032692755297%; --x: -43.768394960837895px; --delay: 5.5741206327713115s; --speed: 8.26364268941935s; --size: 19.008630402451914px;"></i><i class="petal" style="--left: 2.856543803159095%; --x: -69.54718401393343px; --delay: 4.335538881162099s; --speed: 7.221531651343939s; --size: 13.19051329105161px;"></i><i class="petal" style="--left: 97.61876973029634%; --x: 62.00636912630807px; --delay: 2.2847303508792036s; --speed: 8.648391456361587s; --size: 25.206185810789496px;"></i><i class="petal" style="--left: 12.891360658825967%; --x: -2.4672824308299255px; --delay: 3.7938485455437347s; --speed: 11.853952195660678s; --size: 18.29954185497876px;"></i><i class="petal" style="--left: 5.002005847701508%; --x: -66.16054111444956px; --delay: 1.1973773235266696s; --speed: 11.031817700637221s; --size: 14.137368222185003px;"></i><i class="petal" style="--left: 9.061972989750878%; --x: -22.62267772238002px; --delay: 5.698021617351088s; --speed: 11.218794509827084s; --size: 13.07610746146646px;"></i><i class="petal" style="--left: 85.77415553015064%; --x: -20.63437906775519px; --delay: 1.8669367341674128s; --speed: 7.038880603414833s; --size: 24.712882396032946px;"></i><i class="petal" style="--left: 20.181607275304113%; --x: 76.39718833067565px; --delay: 1.2079687254999105s; --speed: 10.47373763071664s; --size: 18.53504124486181px;"></i><i class="petal" style="--left: 96.98945111559185%; --x: -57.597971166479184px; --delay: 5.705541240325038s; --speed: 7.722851508394667s; --size: 16.15858337683165px;"></i><i class="petal" style="--left: 41.03976769213153%; --x: -49.596617817419016px; --delay: 0.5566622430358215s; --speed: 7.13462343500667s; --size: 19.627440287499176px;"></i><i class="petal" style="--left: 97.32720197359399%; --x: 108.44375481317749px; --delay: 4.7605957557589065s; --speed: 11.758308959173483s; --size: 18.97565949144018px;"></i><i class="petal" style="--left: 81.03211996341484%; --x: 28.960464249123362px; --delay: 1.3031933316612139s; --speed: 7.633425102876615s; --size: 12.638271719983761px;"></i><i class="petal" style="--left: 57.22504133773777%; --x: -64.32156628556183px; --delay: 1.83445544794667s; --speed: 9.82606885261453s; --size: 25.099969776882084px;"></i></div>
   <div class="entry-card">
-    <a class="envelope" id="envelope" href="?lang=en#video-en" data-lang="en" aria-label="Open invitation envelope">
+    <a class="envelope" id="envelope" href="?lang=en" data-lang="en" aria-label="Open invitation envelope">
       <div class="envelope-shadow"></div>
       <div class="letter">
         <div class="letter-roses" aria-hidden="true">
@@ -1392,8 +1429,8 @@ body.can-reveal .reveal.visible{opacity:1;transform:translateY(0)}
     <h1>Mariah's Quinceañera</h1>
     <p class="sub">Choose your language · Elige tu idioma</p>
     <div class="language-grid" aria-label="Choose language">
-      <a class="lang-pick" href="?lang=en#video-en" data-lang="en">English</a>
-      <a class="lang-pick" href="?lang=es#video-es" data-lang="es">Español</a>
+      <a class="lang-pick" href="?lang=en" data-lang="en">English</a>
+      <a class="lang-pick" href="?lang=es" data-lang="es">Español</a>
     </div>
     <p class="open-note" id="open-note">Choose a language to open</p>
   </div>
@@ -1427,11 +1464,12 @@ body.can-reveal .reveal.visible{opacity:1;transform:translateY(0)}
       <div class="video-shell">
         <div class="video-card" id="video-card">
           <iframe
-            src="https://www.youtube.com/embed/t-ddTN49b-U?autoplay=1&amp;mute=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1"
+            src="https://www.youtube.com/embed/t-ddTN49b-U?autoplay=1&amp;mute=1&amp;rel=0&amp;modestbranding=1&amp;playsinline=1"
             title="Mariah's Quinceañera save-the-date video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
           </iframe>
+          <button class="music-toggle" type="button" id="music-toggle" aria-pressed="false">Music Off</button>
           <div class="caption-strip" id="caption-strip">Quinceañera de Mariah · Guarda la Fecha</div>
         </div>
       </div>
@@ -1603,6 +1641,7 @@ body.can-reveal .reveal.visible{opacity:1;transform:translateY(0)}
     <span id="footer-line">Junio 2026 · Las Vegas, NV</span>
   </footer>
 </main>
+<audio id="bg-music" src="assets/all-i-can-say.mp3" preload="auto" loop></audio>
 
 <script>
 const copy = {
@@ -1850,10 +1889,41 @@ function initReveal(){
   items.forEach(item => observer.observe(item));
 }
 
+function setMusicState(isPlaying){
+  const button = $("music-toggle");
+  if(!button) return;
+  button.textContent = isPlaying ? "Music On" : "Music Off";
+  button.setAttribute("aria-pressed", isPlaying ? "true" : "false");
+}
+
+function playMusic(){
+  const audio = $("bg-music");
+  if(!audio) return;
+  audio.volume = .72;
+  const attempt = audio.play();
+  if(attempt && typeof attempt.then === "function"){
+    attempt.then(() => setMusicState(true)).catch(() => setMusicState(false));
+  }else{
+    setMusicState(!audio.paused);
+  }
+}
+
+function toggleMusic(){
+  const audio = $("bg-music");
+  if(!audio) return;
+  if(audio.paused){
+    playMusic();
+  }else{
+    audio.pause();
+    setMusicState(false);
+  }
+}
+
 function updateLanguageUrl(lang){
   if(lang !== "en" && lang !== "es") return;
-  const targetHash = `#video-${lang}`;
-  window.location.hash = targetHash;
+  try{
+    history.pushState(null, "", `?lang=${lang}`);
+  }catch(error){}
   return true;
 }
 
@@ -1879,16 +1949,25 @@ function animateLanguageButton(event){
   applyLanguage(lang);
   $("entry").classList.add("open");
   setText("open-note", lang === "es" ? "Abriendo invitación..." : "Opening invitation...");
+  playMusic();
 
   const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 80 : 1650;
   setTimeout(() => {
-    window.location.href = button.href;
+    updateLanguageUrl(lang);
+    $("entry").classList.add("hidden");
+    $("site").classList.add("show");
+    document.body.classList.remove("no-scroll");
+    addStars("hero-sky", 76);
+    document.body.classList.add("can-reveal");
+    initReveal();
+    window.scrollTo(0, 0);
   }, delay);
 }
 
 document.querySelectorAll(".lang-pick[data-lang]").forEach(button => {
   button.addEventListener("click", animateLanguageButton);
 });
+$("music-toggle").addEventListener("click", toggleMusic);
 
 $("envelope").addEventListener("keydown", event => {
   if(event.key === "Enter" || event.key === " "){
