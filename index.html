@@ -586,53 +586,17 @@ body:has(#video-es:target) .reveal{opacity:1;transform:none}
   transform:translateX(-120%) skewX(-18deg);
   animation:shimmer 5.2s ease-in-out infinite;
 }
-.video-placeholder,.video-card video,.video-card iframe,.youtube-watch{
+.video-placeholder,.video-card video,.video-card iframe{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
   border:0;
 }
-.video-card video,.youtube-watch{
+.video-card video,.video-card iframe{
   z-index:1;
   background:#050b18;
 }
-.youtube-watch{
-  display:block;
-  color:var(--white);
-  text-decoration:none;
-}
-.youtube-watch img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-}
-.youtube-watch:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg,rgba(5,11,24,.1),rgba(5,11,24,.32));
-}
-.youtube-play{
-  position:absolute;
-  left:50%;
-  top:50%;
-  z-index:3;
-  width:82px;
-  height:82px;
-  display:grid;
-  place-items:center;
-  border:2px solid rgba(242,215,151,.78);
-  border-radius:50%;
-  background:rgba(7,24,50,.68);
-  color:var(--gold-2);
-  transform:translate(-50%,-50%);
-  box-shadow:0 18px 42px rgba(4,14,32,.42);
-  backdrop-filter:blur(10px);
-}
-.youtube-play svg{width:34px;height:34px;margin-left:5px}
-.youtube-watch:hover .youtube-play,.youtube-watch:focus-visible .youtube-play{background:var(--gold-2);color:var(--navy)}
 .video-placeholder{
   display:grid;
   place-items:center;
@@ -1528,14 +1492,12 @@ body.can-reveal .reveal.visible{opacity:1;transform:translateY(0)}
 
       <div class="video-shell">
         <div class="video-card" id="video-card">
-          <a class="youtube-watch" href="https://www.youtube.com/watch?v=t-ddTN49b-U" target="_blank" rel="noopener" aria-label="Watch Mariah's Quinceañera save-the-date video on YouTube">
-            <img src="https://img.youtube.com/vi/t-ddTN49b-U/maxresdefault.jpg" alt="Mariah's Quinceañera save-the-date video preview">
-            <span class="youtube-play" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M7 4.5v15l12-7.5-12-7.5Z"></path>
-              </svg>
-            </span>
-          </a>
+          <iframe
+            src="https://www.youtube.com/embed/t-ddTN49b-U?rel=0&amp;modestbranding=1&amp;playsinline=1"
+            title="Mariah's Quinceañera save-the-date video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
           <button class="music-toggle" type="button" id="music-toggle" aria-pressed="false">Music Off</button>
           <div class="caption-strip" id="caption-strip">Quinceañera de Mariah · Guarda la Fecha</div>
         </div>
@@ -1895,7 +1857,6 @@ function showInvitationInstant(lang){
   document.body.classList.remove("no-scroll");
   addStars("hero-sky", 76);
   document.querySelectorAll(".reveal").forEach(item => item.classList.add("visible"));
-  startInviteVideo();
 }
 
 function langFromLocation(){
@@ -1975,19 +1936,6 @@ function playMusic(){
   }
 }
 
-function startInviteVideo(){
-  const video = $("save-the-date-video");
-  if(!video) return;
-  video.muted = true;
-  video.defaultMuted = true;
-  video.playsInline = true;
-  video.load();
-  const attempt = video.play();
-  if(attempt && typeof attempt.catch === "function"){
-    attempt.catch(() => {});
-  }
-}
-
 function toggleMusic(){
   const audio = $("bg-music");
   if(!audio) return;
@@ -2040,7 +1988,6 @@ function animateLanguageButton(event){
     addStars("hero-sky", 76);
     document.body.classList.add("can-reveal");
     initReveal();
-    startInviteVideo();
     window.scrollTo(0, 0);
   }, delay);
 }
