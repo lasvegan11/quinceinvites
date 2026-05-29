@@ -81,6 +81,18 @@ a{color:inherit}
 @keyframes controlsArrival{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}
 @keyframes cardPeek{0%,45%{transform:translateY(122px) rotate(-2deg) scale(.92)}100%{transform:translateY(74px) rotate(-2deg) scale(.92)}}
 @keyframes letterReveal{0%{transform:translateY(74px) rotate(-2deg) scale(.92)}42%{transform:translateY(-86px) rotate(1.5deg) scale(1.02)}100%{transform:translateY(-122px) rotate(0deg) scale(1)}}
+@keyframes envelopeOpenMotion{
+  0%{transform:translateY(0) rotateX(0deg) rotateZ(0deg) scale(1)}
+  34%{transform:translateY(16px) rotateX(10deg) rotateZ(-1.5deg) scale(.98)}
+  100%{transform:translateY(24px) rotateX(0deg) rotateZ(0deg) scale(.96)}
+}
+@keyframes mobileCardPeek{0%,45%{transform:translateY(92px) rotate(-2deg) scale(.9)}100%{transform:translateY(66px) rotate(-2deg) scale(.9)}}
+@keyframes mobileLetterReveal{0%{transform:translateY(66px) rotate(-2deg) scale(.9)}45%{transform:translateY(-22px) rotate(1.4deg) scale(.98)}100%{transform:translateY(-32px) rotate(0deg) scale(.98)}}
+@keyframes mobileEnvelopeOpenMotion{
+  0%{transform:translateY(0) rotateX(0deg) rotateZ(0deg) scale(1)}
+  35%{transform:translateY(12px) rotateX(12deg) rotateZ(-1deg) scale(.98)}
+  100%{transform:translateY(22px) rotateX(0deg) rotateZ(0deg) scale(.95)}
+}
 @keyframes sealPop{0%{transform:scale(.72) rotate(-18deg);opacity:0}65%{transform:scale(1.08) rotate(7deg);opacity:1}100%{transform:scale(1) rotate(0deg);opacity:1}}
 @keyframes pearlSwing{0%,100%{transform:translateX(-50%) rotate(-2deg)}50%{transform:translateX(-50%) rotate(2deg)}}
 @keyframes bloomPulse{0%,100%{transform:scale(1) rotate(var(--r,0deg))}50%{transform:scale(1.06) rotate(var(--r,0deg))}}
@@ -412,6 +424,7 @@ body:has(#video-es:target) .reveal{opacity:1;transform:none}
   border-radius:50%;
 }
 .entry.open .ribbon{transform:translateX(-50%) translateY(-110px) rotate(-14deg) scale(1.12);opacity:0}
+.entry.open .envelope{animation:envelopeOpenMotion 1.45s cubic-bezier(.16,.8,.2,1) both}
 .entry.open .env-flap{transform:rotateX(-178deg)}
 .entry.open .letter{animation:letterReveal 1.45s cubic-bezier(.16,.8,.2,1) both}
 .entry.open .wax-seal-entry{animation:sealPop .7s ease both}
@@ -1316,13 +1329,21 @@ body.can-reveal .reveal.visible{opacity:1;transform:translateY(0)}
   .entry{
     place-items:start center;
     overflow-y:auto;
-    padding:max(14px,env(safe-area-inset-top)) 18px max(28px,env(safe-area-inset-bottom));
+    padding:max(22px,env(safe-area-inset-top)) 18px max(28px,env(safe-area-inset-bottom));
   }
   .entry-card{width:min(430px,100%);padding:4px 0 20px}
-  .entry-card h1{margin-top:30px;font-size:clamp(46px,13vw,64px)}
+  .entry-card h1{margin-top:42px;font-size:clamp(46px,13vw,64px)}
   .entry-card .sub{max-width:360px;margin:12px auto 18px;font-size:9.5px;letter-spacing:.14em}
-  .envelope{width:min(320px,84vw);height:258px}
-  .letter{left:8%;right:8%;top:12px;min-height:174px;padding:20px 16px 22px}
+  .envelope{width:min(300px,80vw);height:242px;perspective:1200px}
+  .letter{
+    left:9%;
+    right:9%;
+    top:36px;
+    min-height:148px;
+    padding:16px 14px 18px;
+    transform:translateY(66px) rotate(-2deg) scale(.9);
+    animation:mobileCardPeek 1.25s ease both;
+  }
   .letter-roses{top:-30px;width:190px;height:70px}
   .letter-roses .rose{width:56px;height:56px}
   .letter-roses .r1{left:6px;top:16px}
@@ -1330,15 +1351,18 @@ body.can-reveal .reveal.visible{opacity:1;transform:translateY(0)}
   .letter-roses .r3{left:118px;top:10px}
   .letter-roses .r4{width:46px;height:46px;top:28px}
   .tiara-line{right:14px;top:34px;width:112px}
-  .letter-kicker{margin-top:30px;font-size:28px}
-  .letter strong{font-size:45px}
+  .letter-kicker{margin-top:22px;font-size:24px}
+  .letter strong{font-size:39px}
   .letter span{font-size:8px;letter-spacing:.18em}
-  .letter-date{font-size:25px}
-  .env-body{inset:98px 0 0}
-  .env-pocket{height:112px}
-  .env-flap{top:98px}
-  .ribbon{top:128px;width:118px}
-  .wax-seal-entry{right:22px;bottom:55px;width:58px;height:58px;font-size:16px}
+  .letter-date{font-size:22px}
+  .env-body{inset:112px 0 0}
+  .env-pocket{height:98px}
+  .env-flap{top:112px}
+  .ribbon{top:138px;width:108px}
+  .wax-seal-entry{right:20px;bottom:42px;width:54px;height:54px;font-size:15px}
+  .entry.open .envelope{animation:mobileEnvelopeOpenMotion 1.45s cubic-bezier(.16,.8,.2,1) both}
+  .entry.open .letter{animation:mobileLetterReveal 1.45s cubic-bezier(.16,.8,.2,1) both}
+  .entry.open .ribbon{transform:translateX(-50%) translateY(-72px) rotate(-12deg) scale(1.06);opacity:0}
   .language-grid{grid-template-columns:1fr;gap:12px;margin-top:18px}
   .lang-pick{min-height:50px}
   .music-toggle{right:12px;top:12px;font-size:9px}
@@ -1463,12 +1487,17 @@ body.can-reveal .reveal.visible{opacity:1;transform:translateY(0)}
 
       <div class="video-shell">
         <div class="video-card" id="video-card">
-          <iframe
-            src="https://www.youtube.com/embed/t-ddTN49b-U?autoplay=1&amp;mute=1&amp;rel=0&amp;modestbranding=1&amp;playsinline=1"
-            title="Mariah's Quinceañera save-the-date video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+          <video
+            id="save-the-date-video"
+            autoplay
+            muted
+            playsinline
+            loop
+            preload="metadata"
+            controls
+            aria-label="Mariah's Quinceañera save-the-date video">
+            <source src="assets/savethedate.mp4" type="video/mp4">
+          </video>
           <button class="music-toggle" type="button" id="music-toggle" aria-pressed="false">Music Off</button>
           <div class="caption-strip" id="caption-strip">Quinceañera de Mariah · Guarda la Fecha</div>
         </div>
@@ -1828,6 +1857,7 @@ function showInvitationInstant(lang){
   document.body.classList.remove("no-scroll");
   addStars("hero-sky", 76);
   document.querySelectorAll(".reveal").forEach(item => item.classList.add("visible"));
+  startInviteVideo();
 }
 
 function langFromLocation(){
@@ -1907,6 +1937,17 @@ function playMusic(){
   }
 }
 
+function startInviteVideo(){
+  const video = $("save-the-date-video");
+  if(!video) return;
+  video.muted = true;
+  video.playsInline = true;
+  const attempt = video.play();
+  if(attempt && typeof attempt.catch === "function"){
+    attempt.catch(() => {});
+  }
+}
+
 function toggleMusic(){
   const audio = $("bg-music");
   if(!audio) return;
@@ -1959,6 +2000,7 @@ function animateLanguageButton(event){
     addStars("hero-sky", 76);
     document.body.classList.add("can-reveal");
     initReveal();
+    startInviteVideo();
     window.scrollTo(0, 0);
   }, delay);
 }
